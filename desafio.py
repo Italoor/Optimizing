@@ -1,4 +1,5 @@
 from greedy import greedy_investment
+from milp import milp_investment
 
 #Inicializacao das variaveis
 
@@ -14,4 +15,5 @@ investments = [(1, 'Ampliacao da capacidade do armazem ZDP em 5%', 470000, 41000
                 (8, 'Ampliacao da estrutura de carga rodoviaria', 440000, 190000)]
 
 if __name__ == "__main__":
-    list(map(print, greedy_investment(budget, investments)))
+    # list(map(print, greedy_investment(budget, investments)))
+    list(map(print, milp_investment(budget, investments, verbose=True)))
