@@ -1,6 +1,7 @@
-def greedy_investment(budget: int, investment_options: list()) -> list():
+def greedy_investment(budget: int, investment_options: []) -> []:
     chosen_investments = list()
 
+    #Ordena as opcoes de investimento pela razao entre o retorno e o custo
     sorted_investments = sorted(investment_options,
                                 key=lambda investment: (investment[3]/ investment[2] + 1e-9),
                                 reverse=True)
@@ -11,6 +12,7 @@ def greedy_investment(budget: int, investment_options: list()) -> list():
         if investment[2] <= budget:
             if investment[0] == 2:
                 if investment[2] + investment_options[3][2] <= budget:
+                    #Na opcao de investimento 2 verifica se 2 + 4 estao dentro do orcamento
                     chosen_investments.append(investment)
                     chosen_investments.append(investment_options[3])
                     budget -= investment[2] + investment_options[3][2]
